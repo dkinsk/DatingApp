@@ -18,18 +18,18 @@ export class AlertifyService {
   }
 
   success(message: string) {
-    alertify.success(message);
+    alertify.success(message, [2]);
   }
 
   error(message: string) {
-    alertify.error(message);
+    alertify.error(message, [2]);
   }
 
   warning(message: string) {
-    alertify.warning(message);
+    alertify.warning(message, [2]);
   }
 
   message(message: string) {
-    alertify.message(message);
+    alertify.message(message, [2]);
   }
 }
