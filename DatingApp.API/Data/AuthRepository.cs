@@ -10,7 +10,7 @@ namespace DatingApp.API.Data
     private readonly DataContext _context;
     public AuthRepository(DataContext context)
     {
-      this._context = context;
+        _context = context;
 
     }
     public async Task<User> Login(string username, string password)
@@ -28,7 +28,7 @@ namespace DatingApp.API.Data
 
     private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
     {
-      using(var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+      using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
       {
         var computedHash = passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
         for (int i = 0; i < computedHash.Length; i++)
@@ -56,7 +56,7 @@ namespace DatingApp.API.Data
 
     private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
     {
-      using(var hmac = new System.Security.Cryptography.HMACSHA512())
+      using (var hmac = new System.Security.Cryptography.HMACSHA512())
       {
         passwordSalt = hmac.Key;
         passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
