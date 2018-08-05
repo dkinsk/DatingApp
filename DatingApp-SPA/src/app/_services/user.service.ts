@@ -10,6 +10,7 @@ import { User } from '../_models/user';
 
 export class UserService {
   baseUrl = 'http://localhost:5000/api/';
+  // baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
